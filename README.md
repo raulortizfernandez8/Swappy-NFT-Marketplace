@@ -1,64 +1,64 @@
 # Swappy-NFT-Marketplace
 Swappy is a simple yet secure NFT marketplace smart contract written in Solidity. It enables users to list, cancel, update, and buy ERC-721 tokens, with a small fee collected by the contract owner.
-Features
+# Features
 
-List NFTs for sale (ERC-721 standard).
+ - List NFTs for sale (ERC-721 standard).
 
-Cancel listings anytime by the owner.
+ - Cancel listings anytime by the owner.
 
-Update prices of listed NFTs.
+ - Update prices of listed NFTs.
 
-Buy NFTs safely with ETH transfers.
+ - Buy NFTs safely with ETH transfers.
 
-Fee mechanism (configurable, max 10%).
+ - Fee mechanism (configurable, max 10%).
 
-Withdraw fees for the owner.
+ - Withdraw fees for the owner.
 
-Pause / Unpause the marketplace.
+ - Pause / Unpause the marketplace.
 
-Direct ETH injection into the contract.
+ - Direct ETH injection into the contract.
 
-Security Features
+# Security Features
 
 Security in smart contracts is critical. Swappy implements several best practices:
 
 🔹 Checks-Effects-Interactions (CEI) pattern
 
-External calls (like ETH transfers and safeTransferFrom) happen after state changes (e.g. deleting a listing).
+ - External calls (like ETH transfers and safeTransferFrom) happen after state changes (e.g. deleting a listing).
 
-Prevents reentrancy exploits.
+ - Prevents reentrancy exploits.
 
 🔹 Reentrancy Guard (nonReentrant)
 
-Protects the buyNFT function from being called recursively by malicious contracts.
+ - Protects the buyNFT function from being called recursively by malicious contracts.
 
 🔹 Pausable mechanism
 
-Owner can pause/unpause the contract to stop trading in emergencies.
+ - Owner can pause/unpause the contract to stop trading in emergencies.
 
 🔹 Access Control (onlyOwner)
 
-Only the contract owner can:
+ - Only the contract owner can:
 
-Withdraw fees
+ - Withdraw fees
 
-Modify fees
+ - Modify fees
 
-Pause/unpause the contract
+ - Pause/unpause the contract
 
 🔹 Validation with require
 
-Prevents zero-price listings
+ - Prevents zero-price listings
 
-Ensures only owners can list/cancel/update
+ - Ensures only owners can list/cancel/update
 
-Blocks self-purchase
+ - Blocks self-purchase
 
-Ensures fee is always <10%
+ - Ensures fee is always <10%
 
 🔹 Safe transfers
 
-Uses IERC721.safeTransferFrom to ensure NFT transfers follow ERC721 standard.
+ - Uses IERC721.safeTransferFrom to ensure NFT transfers follow ERC721 standard.
 
 # Contract Functions
 
