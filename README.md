@@ -61,17 +61,20 @@ Ensures fee is always <10%
 Uses IERC721.safeTransferFrom to ensure NFT transfers follow ERC721 standard.
 
 # Contract Functions
-Listing
-function listNFT(address nft, uint256 tokenId, uint256 price);
 
+*Listing*
+
+
+function listNFT(address nft, uint256 tokenId, uint256 price);
 
 Requires approval from NFT owner.
 
 Prevents duplicate listings or zero price.
 
-Buying
-function buyNFT(address nft, uint256 tokenId) payable nonReentrant;
+*Buying*
 
+
+function buyNFT(address nft, uint256 tokenId) payable nonReentrant;
 
 Buyer must send exact ETH price.
 
@@ -81,21 +84,24 @@ Ensures seller still owns the NFT.
 
 Uses CEI pattern to avoid reentrancy.
 
-Cancel Listing
-function cancelList(address nft, uint256 tokenId);
+*Cancel Listing*
 
+
+function cancelList(address nft, uint256 tokenId);
 
 Only seller can cancel.
 
-Update Price
-function updatePrice(address nft, uint256 tokenId, uint256 newPrice);
+*Update Price*
 
+
+function updatePrice(address nft, uint256 tokenId, uint256 newPrice);
 
 New price must be > 0.
 
 Only seller can update.
 
-Fee Management
+*Fee Management*
+
 
 modifyFees(uint256 newFee) → Only owner, must be <10%.
 
@@ -105,23 +111,24 @@ Emergency Controls
 
 pauseSmartContract() / unPauseSmartContract() → Stop/resume trading.
 
-ETH Injection
+*ETH Injection*
+
 
 receive() allows direct ETH deposits into the contract.
 
 # Events
 
-ListNFT(address nft, address seller, uint256 tokenId, uint256 price)
+- ListNFT(address nft, address seller, uint256 tokenId, uint256 price)
 
-BuyNFT(address nft, address buyer, address seller, uint256 tokenId, uint256 price)
+- BuyNFT(address nft, address buyer, address seller, uint256 tokenId, uint256 price)
 
-CancelList(address nft, address seller, uint256 tokenId)
+- CancelList(address nft, address seller, uint256 tokenId)
 
-ModifyFee(uint256 fee)
+- ModifyFee(uint256 fee)
 
-Withdraw(uint256 amount)
+- Withdraw(uint256 amount)
 
-UpdatePrice(address nft, uint256 tokenId, uint256 newPrice)
+- UpdatePrice(address nft, uint256 tokenId, uint256 newPrice)
 
 # 🧪 Testing
 
