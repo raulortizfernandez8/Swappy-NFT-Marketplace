@@ -128,11 +128,19 @@ UpdatePrice(address nft, uint256 tokenId, uint256 newPrice)
 The test suite (Foundry) covers:
 
 ✅ Minting and approving NFTs.
+
 ✅ Listing NFTs correctly.
+
 ✅ Preventing invalid listings (price = 0, already listed, not owner).
+
 ✅ Canceling listings (success + unauthorized reverts).
+
 ✅ Buying NFTs (success + invalid scenarios like wrong price, seller no longer owns, self-purchase).
+
 ✅ Fee logic (correct distribution + withdraw).
+
 ✅ Pausable behavior (pause/unpause, reverts on double actions or unauthorized).
+
 ✅ ETH receiving with receive().
+
 <img width="729" height="199" alt="image" src="https://github.com/user-attachments/assets/5fa6e2d4-bf49-417b-b1e5-34b7a62276f9" />
