@@ -65,56 +65,56 @@ Uses IERC721.safeTransferFrom to ensure NFT transfers follow ERC721 standard.
 *Listing*
 
 
-function listNFT(address nft, uint256 tokenId, uint256 price);
+ - function listNFT(address nft, uint256 tokenId, uint256 price);
 
-Requires approval from NFT owner.
+ - Requires approval from NFT owner.
 
-Prevents duplicate listings or zero price.
+ - Prevents duplicate listings or zero price.
 
 *Buying*
 
 
-function buyNFT(address nft, uint256 tokenId) payable nonReentrant;
+ - function buyNFT(address nft, uint256 tokenId) payable nonReentrant;
 
-Buyer must send exact ETH price.
+ - Buyer must send exact ETH price.
 
-Prevents self-purchase.
+ - Prevents self-purchase.
 
-Ensures seller still owns the NFT.
+ - Ensures seller still owns the NFT.
 
-Uses CEI pattern to avoid reentrancy.
+ - Uses CEI pattern to avoid reentrancy.
 
 *Cancel Listing*
 
 
-function cancelList(address nft, uint256 tokenId);
+ - function cancelList(address nft, uint256 tokenId);
 
-Only seller can cancel.
+ - Only seller can cancel.
 
 *Update Price*
 
 
-function updatePrice(address nft, uint256 tokenId, uint256 newPrice);
+ - function updatePrice(address nft, uint256 tokenId, uint256 newPrice);
 
-New price must be > 0.
+ - New price must be > 0.
 
-Only seller can update.
+ - Only seller can update.
 
 *Fee Management*
 
 
-modifyFees(uint256 newFee) → Only owner, must be <10%.
+ - modifyFees(uint256 newFee) → Only owner, must be <10%.
 
-withdrawFees() → Only owner, withdraws accumulated fees.
+ - withdrawFees() → Only owner, withdraws accumulated fees.
 
-Emergency Controls
+ - Emergency Controls
 
-pauseSmartContract() / unPauseSmartContract() → Stop/resume trading.
+ - pauseSmartContract() / unPauseSmartContract() → Stop/resume trading.
 
 *ETH Injection*
 
 
-receive() allows direct ETH deposits into the contract.
+ - receive() allows direct ETH deposits into the contract.
 
 # Events
 
